@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Mi Formulario</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" />
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	</head>
+	<body>
+		<div data-role="page">
+			<div data-role="header">
+				<h1>Título del Formulario</h1>
+			</div>
+			<div data-role="content">
+				<form action="index.html" method="post">
+					<div data-role="fieldcontain">
+						<label for="ctBuscar">Buscar:</label>
+						<input type="search" name="cajaTextoBuscar" id="ctBuscar">
+					</div>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>Seleccionar:</legend>
+							<input type="radio" name="widgetShape" id="widgetShape-round" value="round" checked>
+							<label for="widgetShape-round">Seleccionar 1</label>
+							<input type="radio" name="widgetShape" id="widgetShape-square" value="square">
+							<label for="widgetShape-square">Seleccionar 2</label>
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>Opciones:</legend>
+							<input type="checkbox" name="controlOpciones" id="checkbox1" value="1">
+							<label for="checkbox1">Opción 1</label>
+							<input type="checkbox" name="controlOpciones" id="checkbox2" value="2">
+							<label for="checkbox2">Opción 2</label>
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="basic">Cuadro Texto:</label>
+						<input type="text" name="ingresoTexto" id="cuadroTexto" value=""/>
+    				</div>
+    				<div data-role="fieldcontain" class="ui-hide-label">
+    					<legend>Área de texto: </legend>
+						<textarea name="areaTexto" id="textArea"></textarea>
+						<label for="textArea">Área de Texto:</label>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="emailAddress">Dirección de Email:</label>
+						<input type="email" name="emailAddress" id="emailAddress">
+					</div>
+					<div data-role="fieldcontain">
+						<label for="password">Password:</label>
+						<input type="password" name="password" id="password">
+					</div>
+					<div data-role="fieldcontain">
+						<label for="fecha">Fecha:</label>
+						<input type="date" name="fecha" id="fecha">
+					</div>
+					<div data-role="fieldcontain">
+						<label for="hora">Hora:</label>
+						<input type="time" name="hora" id="hora">
+					</div>
+					<div data-role="fieldcontain">
+						<label for="seleccioneOpcion" class="select">Método de envío:</label>
+						<select name="seleccioneOpcion" id="seleccionOpcion">
+   							<option value="standard">Standard: 7 días</option>
+   							<option value="rush">Rush: 3 días</option>
+   							<option value="express">Express: siguiente día</option>
+   							<option value="overnight">Overnight</option>
+						</select>
+					</div>
+					<input type="submit" name="enviar" value="Enviar">
+				</form>
+			</div>
+			<div data-role="footer">
+				<h4>Pie del formulario</h4>
+			</div>
+		</div>
+	</body>
+</html>

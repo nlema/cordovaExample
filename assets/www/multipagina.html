@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Documento multipágina</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" />
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	</head>
+	<body>
+		<div data-role="page" id="inicio">
+			<div data-role="header">
+				<h1>Inicio</h1>
+			</div>
+			<div data-role="content">
+				<p><a href="#acercaDe">Acerca de</a></p>
+			</div>
+			<div data-role="footer">
+				<h4>Pie de página Inicio</h4>
+			</div>
+		</div>
+		<div data-role="page" id="acercaDe">
+			<div data-role="header">
+				<h1>Acerca de</h1>
+			</div>
+			<div data-role="content">
+				<p>Esto es acerca de... <a href="#inicio">Inicio</a></p>
+			</div>
+			<div data-role="footer">
+				<h4>Pie de página Acerca de</h4>
+			</div>
+		</div>
+	</body>
+</html>

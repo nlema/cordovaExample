@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Mi Página</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" />
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>	
+		<script>
+			// Initializar un popup
+			$(document).on( 'click', '#initPopupLink', function() {
+				$('#initPopup').popup();
+			} );
+			// Abrir y cerrar un popup
+			$(document).on( 'click', '#openClosePopupLink', function() {
+				$('#openClosePopup').popup( 'open' );
+				setTimeout( function() { $('#openClosePopup').popup( 'close' ); }, 5000 );
+			} );
+			// Configurar opciones de popup
+			$(document).on( 'click', '#setPopupOptionsLink', function() {
+				// Globales
+				$('#setPopupOptions').popup( {
+					corners: false,
+					theme: "e"
+				} );
+				// Temporales, sólo cuando se abre la instancia
+				$('#setPopupOptions').popup( 'open', {
+					x: 500,
+					y: 200,
+					transition: "pop"
+				} );
+			} );
+			// Gestionar el evento popupbeforeposition (apertura del popup)
+				$(document).on( 'popupbeforeposition', '#popupbeforepositionEvent', function() {
+					alert( "El popup está por aparecer!" );
+				} );			
+		</script>
+	</head>
+	<body>
+		<div data-role="page" id="home">
+			<div data-role="header">
+				<h1>Ejemplos de Popups</h1>
+			</div>
+			<div data-role="content">
+				<!-- The Popup Links -->
+				<h2>Popup Básico</h2>
+				<p><a href="#basic" data-rel="popup">A basic popup with no options</a></p>
+				<h2>Popups & Temas</h2>
+				<p><a href="#themedPopup" data-rel="popup">A popup with the 'e' swatch</a></p>
+				<p><a href="#themedOverlay" data-rel="popup">A popup overlay with the 'e' swatch</a></p>
+				<p><a href="#noCorners" data-rel="popup">A popup without rounded corners</a></p>
+				<p><a href="#noShadow" data-rel="popup">A popup without a shadow</a></p>
+				<h2>Popup Padding</h2>
+				<p><a href="#noPadding" data-rel="popup">A popup with text and no
+				padding</a></p>
+				<p><a href="#padding" data-rel="popup">A popup with text and
+				padding</a></p>
+				<h2>Popup Positioning</h2>
+				<p><a href="#positionOrigin" data-rel="popup">A popup positioned over
+				the origin</a></p>
+				<p><a href="#positionWindow" data-rel="popup">A popup centered in the
+				window</a></p>
+				<p><a href="#positionSelector" data-rel="popup">A popup positioned
+				over an element</a></p>
+				<div id="popupHere" style="margin: 30px 10px; padding: 20px; width:
+				230px; border: 1px solid #666; text-align: center;">Open Popup Here</div>
+				<h2>Popup Transitions</h2>
+				<p><a href="#popTransition" data-rel="popup" data-transition="pop">A
+				popup with a "pop" transition</a></p>
+				<h2>Close Buttons</h2>
+				<p><a href="#closeButton" data-rel="popup">A popup with a right-hand
+				close button</a></p>
+				<h2>History Support</h2>
+				<p><a href="#noHistory" data-rel="popup">A popup that doesn't appear
+				in the browser history</a></p>
+				<h2>Controlling Popups with JavaScript</h2>
+				<p><a href="#" id="initPopupLink">Initialize a popup</a>, then <a
+				href="#initPopup" data-rel="popup">open it</a></p>
+				<p><a href="#" id="openClosePopupLink">Open and close a popup</a></p>
+				<p><a href="#" id="setPopupOptionsLink">Set options on a popup using
+				JavaScript</a></p>
+				<p><a href="#popupbeforepositionEvent" data-rel="popup">Handle the <code>popupbeforeposition</code> Event</a></p>
+				<h2>Practical Examples</h2>
+				<p><a href="#tooltip" data-rel="popup">Tooltip</a></p>
+				<p><a href="#menu" data-rel="popup">Menu</a></p>
+				<p><a href="#lightbox" data-rel="popup" data-positionto="window">Image Lightbox</a></p>
+			</div>
+			<!-- The Popups -->
+			<div data-role="popup" id="basic">
+				<p>A basic popup.</p>
+			</div>
+			<div data-role="popup" id="themedPopup" data-theme="e">
+				<p>This popup has a <code>data-theme="e"</code> attribute.</p>
+			</div>
+			<div data-role="popup" id="themedOverlay" data-overlay-theme="e">
+				<p>This popup has a <code>data-overlay-theme="e"</code> attribute.</p>
+			</div>
+			<div data-role="popup" id="noCorners" data-corners="false">
+				<p>This popup has a <code>data-corners="false"</code> attribute.</p>
+			</div>
+			<div data-role="popup" id="noShadow" data-shadow="false">
+				<p>This popup has a <code>data-shadow="false"</code> attribute.</p>
+			</div>
+			<div data-role="popup" id="noPadding">
+				<h3>A Popup with No Padding</h3>
+				<p>This popup has no padding (the default setting).</p>
+				<p>Notice how the text appears cramped within the popup.</p>
+			</div>
+			<div data-role="popup" id="padding" class="ui-content">
+				<h3>A Popup with Padding</h3>
+				<p>This popup has a <code>class="ui-content"</code> attribute to add
+				padding.</p>
+				<p>Notice that the text has room to breathe within the popup.</p>
+			</div>
+			<div data-role="popup" id="positionOrigin" data-position-to="origin">
+				<p>This popup uses <code>data-position-to="origin"</code>.</p>
+			</div>
+			<div data-role="popup" id="positionWindow" data-position-to="window">
+				<p>This popup uses <code>data-position-to="window"</code>.</p>
+			</div>
+			<div data-role="popup" id="positionSelector" data-positionto="#
+			popupHere">
+				<p>This popup uses <code>data-position-to="#popupHere"</code>.</p>
+			</div>
+			<div data-role="popup" id="popTransition">
+				<p>This popup appears using the "pop" transition.</p>
+			</div>
+			<div data-role="popup" id="closeButton" class="ui-content">
+				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				<p>This popup has a top-right close button. Try tapping it!</p>
+			</div>
+			<div data-role="popup" id="noHistory" data-history="false">
+				<p>This popup uses the <code>data-history="false"</code> attribute.
+				It doesn't appear in the browser history, or change the URL in the address
+				bar when it appears.</p>
+			</div>
+			<div id="initPopup">
+				<p>This popup is just a regular <code>div</code> without the
+				<code>data-role="popup"</code> attribute. It was turned into a popup by
+				calling the <code>popup</code> plugin on the <code>div</code>.</p>
+			</div>
+			<div data-role="popup" id="openClosePopup">
+				<p>This popup was opened using the <code>popup</code> plugin's
+				<code>open</code> method. It will shortly be closed with the <code>close</
+				code> method.</p>
+			</div>
+			<div data-role="popup" id="setPopupOptions">
+				<p>This popup was configured by passing options objects to the
+				<code>popup</code> plugin, and also to its <code>open</code> method.</p>
+			</div>
+			<div data-role="popup" id="popupbeforepositionEvent">
+				<p>This popup appears just after the <code>popupbeforeposition</code>
+				event has fired.</p>
+			</div>
+			<div data-role="popup" id="tooltip" data-theme="e">
+				<p>A simple tooltip.</p>
+			</div>
+			<div data-role="popup" id="menu">
+				<ul data-role="listview" data-inset="true" data-theme="b">
+					<li data-role="divider" data-theme="a">Popup Menu</li>
+					<li><a href="#">Ruby Red</a></li>
+					<li><a href="#">Plush Purple</a></li>
+					<li><a href="#">Cool Cream</a></li>
+				</ul>
+			</div>
+			<div data-role="popup" id="lightbox" data-overlay-theme="a" datatheme="d" data-corners="false">
+				<a href="#" data-rel="back" data-role="button" data-theme="a" dataicon="./css/images/delete" data-iconpos="notext" class="ui-btn-left">Cerrar</a><img
+				src="./img/cordova.png" alt="Córdova">
+			</div>
+		</div>
+	</body>
+</html>

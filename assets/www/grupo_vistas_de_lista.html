@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Vistas de Lista</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" />
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	</head>
+	<body>
+		<div data-role="page">
+			<div data-role="header">
+				<h1>Encabezado</h1>
+			</div>
+			<div data-role="content">
+				<h2>Grupo de listas plegables</h2>
+				<div data-role="collapsible-set">
+					<div data-role="collapsible" data-theme="b" data-content-theme="c">
+						<h3>Colores</h3>
+						<ul data-role="listview">
+							<li><a href="#">Rojo</a></li>
+							<li><a href="#">Azul</a></li>
+							<li><a href="#">Blanco></li>
+						</ul>
+					</div>
+					<div data-role="collapsible" data-theme="b" data-content-theme="c"
+					data-collapsed="true">
+						<h3>Tamaños</h3>
+						<ul data-role="listview">
+							<li><a href="#">Regular</a></li>
+							<li><a href="#">Large</a></li>
+							<li><a href="#">Extra Large</a></li>
+						</ul>
+					</div>
+					<div data-role="collapsible" data-theme="b" data-content-theme="c"
+					data-collapsed="true">
+						<h3>Características</h3>
+						<ul data-role="listview">
+							<li><a href="#">70% de algodón</a></li>
+							<li><a href="#">30% de poliester</a></li>
+							<li><a href="#">Estampado</a></li>
+						</ul>
+					</div>
+				</div>
+				<h2>Grupo de listas plegables que ocupan toda la pantalla</h2>
+				<div data-role="collapsible" data-theme="b" data-content-theme="c" data-collapsed="true" data-inset="false">
+					<h3>Tamaños</h3>
+					<ul data-role="listview">
+						<li><a href="#">Regular</a></li>
+						<li><a href="#">Large</a></li>
+					</ul>					
+				</div>
+				<div data-role="collapsible" data-theme="b" data-content-theme="c"
+				data-collapsed="true" data-inset="false">
+					<h3>Características</h3>
+					<ul data-role="listview">
+						<li><a href="#">Precio</a></li>
+						<li><a href="#">Composición</a></li>
+					</ul>
+				</div>
+			</div>	
+			<div data-role="footer">
+				<h4>Pie de página</h4>
+			</div>
+		</div>
+	</body>
+</html>

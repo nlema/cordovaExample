@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Grillas y Bloques</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" />
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	</head>
+	<body>
+		<div data-role="page">
+			<div data-role="header">
+				<h1>Encabezado</h1>
+			</div>
+			<div data-role="content">
+				<div data-role="collapsible">
+					<h3>Producto</h3>
+					<p>Descripción general del producto</p>
+					<div data-role="collapsible">
+						<h4>Especificaciones</h4>
+						<dl>
+							<dt>Ancho:</dt><dd>600mm</dd>
+							<dt>Alto:</dt><dd>300mm</dd>
+							<dt>Espesor:</dt><dd>20mm</dd>
+							<dt>Peso:</dt><dd>4.65kg</dd>
+						</dl>
+					</div>
+				</div>
+				<div data-role="collapsible-set">
+					<div data-role="collapsible" data-collapsed="false">
+						<h3>Producto</h3>
+						<p>Descripción general del producto</p>
+					</div>
+					<div data-role="collapsible">
+						<h3>Especificaciones</h3>
+						<dl>
+							<dt>Ancho:</dt><dd>600mm</dd>
+							<dt>Alto:</dt><dd>300mm</dd>
+							<dt>Espesor:</dt><dd>20mm</dd>
+							<dt>Peso:</dt><dd>4.65kg</dd>
+						</dl>
+					</div>
+					<div data-role="collapsible">
+						<h3>Precio y disponibilidad</h3>
+						<p>$ 10.000,00. Disponible en stock</p>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer">
+				<h4>Pie de página</h4>
+			</div>
+		</div>
+	</body>
+</html>

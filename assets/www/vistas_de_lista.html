@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Vistas de Lista</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" />
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	</head>
+	<body>
+		<div data-role="page" data-add-back-btn=“true”>
+			<div data-role="header">
+				<h1>Encabezado</h1>
+			</div>
+			<div data-role="content">
+			<!-- Lista desordenada -->
+				<ul>
+					<li>Rojo</li>
+					<li>Azul</li>
+					<li>Blanco</li>
+				</ul>
+			<!-- Vista de lista a partir de una lista desordenada  -->
+				<ul data-role="listview">
+					<li>Rojo</li>
+					<li>Azul</li>
+					<li class="ui-screen-hidden">Blanco</li>
+				</ul>
+			<!-- Vista de lista a partir de una lista ordenada -->
+			<!-- start="10" indica que la lista inicia en el número 10 -->
+			<!-- data-inset="true" permite agregar otros contenidos a la página donde -->
+			<!-- se encuentra la lista -->
+				<ol start="10" data-role="listview" data-inset="true">
+					<li>Primero</li>
+					<li>Segundo</li>
+					<li>Tercero</li>
+				</ol>	
+			<!-- Vista de lista de enlaces -->
+				<ul data-role="listview" data-inset="true">
+					<li><a href="#">Primer elemento</a></li>
+					<li><a href="#">Segundo elemento</a></li>
+					<li><a href="#">Tercer elemento</a></li>
+					<li data-role="list-divider">Opciones</li>
+					<li><a href="#">Opción 1</a></li>
+					<li><a href="#">Opción 2</a></li>
+					<li><a href="#">Opciñon3</a></li>
+				</ul>	
+			<!-- Vista de lista anidada -->	
+				<ul data-role="listview" data-inset="true">
+					<li>Widget Colors
+						<ul>
+							<li><a href="#">Ruby Red</a></li>
+							<li><a href="#">Plush Purple</a></li>
+							<li><a href="#">Cool Cream</a></li>
+						</ul>
+					</li>
+					<li>Widget Sizes
+						<ul>
+							<li><a href="#">Small</a></li>
+							<li><a href="#">Medium</a></li>
+							<li><a href="#">Large</a></li>
+						</ul>
+					</li>
+					<li>Widget Features
+						<ul>
+							<li><a href="#">Glossy</a></li>
+							<li><a href="#">Leather Case</a></li>
+							<li><a href="#">Cup Holder</a></li>
+						</ul>
+					</li>
+				</ul>
+			<!-- Lista de botones separados -->	
+				<ul data-role="listview" data-inset="true" data-split-icon="plus" data-split-theme="b">
+					<li>
+						<a href="#info">Ruby Red</a>
+						<a href="#addToCart">Add to Cart</a>
+					</li>
+					<li>
+						<a href="#info">Plush Purple</a>
+						<a href="#addToCart">Add to Cart</a>
+					</li>
+					<li>
+						<a href="#info">Cool Cream</a>
+						<a href="#addToCart">Add to Cart</a>
+					</li>
+				</ul>
+			</div>
+			<div data-role="footer">
+				<h4>Pie de página</h4>
+			</div>
+		</div>
+	</body>
+</html>
