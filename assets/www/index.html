@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="viewport"
 	content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
@@ -12,84 +12,17 @@
 <script src="js/jquery.mobile-1.2.0.min.js"></script>
 <script type="text/javascript" src="js/cordova-2.2.0.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" charset="UTF-8">
-	//Call onDeviceReady when Cordova is loaded.
-	//
-	// At this point, the document has loaded but cordova-1.8.0.js has not.
-	// When Cordova is loaded and talking with the native device,
-	// it will call the event `deviceready`.
-	//
-	function onLoad() {
-    	document.addEventListener("deviceready", onDeviceReady, false);
-	}
-
-	// Populate the database 
-	//
-	function populateDB(tx) {
-    	tx.executeSql('DROP TABLE IF EXISTS DEMO');
-    	tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
-    	tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
-    	tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
-	}
-
-	// Query the database
-	//
-	function queryDB(tx) {
-    	tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
-	}
-
-	// Query the success callback
-	//
-	function querySuccess(tx, results) {
-    	var len = results.rows.length;
-    	//console.log("DEMO table: " + len + " rows found.");
-    	$('#result').html("DEMO table: " + len + " rows found.");
-    	var listval = '';
-    	for (var i=0; i<len; i++){
-        	//console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
-         	listval += '<li>'+ results.rows.item(i).data + '[' + results.rows.item(i).id + '] </li>';
-    	}
-
-    	$('#listItem').html(listval);
-	}
-
-	// Transaction error callback
-	//
-	function errorCB(err) {
-    	console.log("Error processing SQL: "+err.code);
-	}
-
-	// Transaction success callback
-	//
-	function successCB() {
-    	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
-    	db.transaction(queryDB, errorCB);
-	}
-
-	// Cordova is loaded and it is now safe to make calls Cordova methods
-	//
-	function onDeviceReady() {
-    	// Now safe to use the Cordova API
-    	//alert('ready');
-    	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
-    	db.transaction(populateDB, errorCB, successCB);
-    	//$('#result').html('hello');
-	}
-
-</script>
 <title>Hello World</title>
 </head>
-<body onload="onLoad()">
+<body>
 	<!-- Home -->
 	<div data-role="page" id="page1">
 		<div data-theme="" data-role="header">
 			<h3>Hello World</h3>
 		</div>
 		<div data-role="content">
-			<div>result:</div><div id="result"></div>
-  				<ul id="listItem">
-  				</ul>
-			</div>
+			<a href="#" data-role="button" id="btHello">Button</a>
+		</div>
 		<div data-theme="" data-role="footer" data-position="fixed">
 			<h3>Footer</h3>
 		</div>
