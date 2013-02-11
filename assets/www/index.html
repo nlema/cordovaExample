@@ -15,7 +15,7 @@
 <script type="text/javascript">
 	function onDeviceReady(){
 		document.getElementById("deviceName").innerHTML = device.name;
-		document.getElementById("version").innerHTML = device.phonegap;
+		document.getElementById("version").innerHTML = device.cordova;
 		document.getElementById("mobilePlatform").innerHTML = device.platform;
 		document.getElementById("platformVersion").innerHTML = device.version;
 		document.getElementById("uuid").innerHTML = device.uuid;
@@ -29,6 +29,23 @@
 	function init(){
 		document.addEventListener("deviceready", onDeviceReady, false);
 	}
+	// Wait for Cordova to load
+    //
+    //document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    //function onDeviceReady() {
+    //    var element = document.getElementById('deviceProperties');
+
+    //    element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
+    //                        'Device Cordova: '  + device.cordova + '<br />' + 
+    //                        'Device Platform: ' + device.platform + '<br />' + 
+    //                        'Device UUID: '     + device.uuid     + '<br />' + 
+    //                        'Device Model: '    + device.model     + '<br />' + 
+    //                        'Device Version: '  + device.version  + '<br />';
+   // }
+
 </script>
 <title>Hello World</title>
 </head>
@@ -41,9 +58,31 @@
 		<div data-role="content">
 			<!--  
 			<a href="#" data-role="button" id="btHello">Button</a>
-			-->
 			<p>This is a PhoneGap application that makes calls to the PhoneGap APIs.</p>
-    		<p id="appInfo">Waiting for PhoneGap Initialization to complete</p>
+    		<p id="appInfo">Waiting for PhoneGap Initialization to complete</p> -->
+			<table border="1">
+			    <tr>
+			      <td>Nombre de Dispositivo</td>
+			      <td id="deviceName"></td>
+			    </tr>
+			    <tr>
+			      <td>Version PhoneGap</td>
+			      <td id="version"></td>
+			    </tr>
+			    <tr>
+			      <td>Plataforma Movil</td>
+			      <td id="mobilePlatform"></td>
+			    </tr>
+			    <tr>
+			      <td>Version de Plataforma</td>
+			      <td id="platformVersion"></td>
+			    </tr>
+			    <tr>
+			      <td>UUID</td>
+			      <td id="uuid"></td>
+			    </tr>
+			 </table>
+		<!-- <p id="deviceProperties">Loading device properties...</p> -->
 		</div>
 		<div data-theme="" data-role="footer" data-position="fixed">
 			<h3>Footer</h3>
