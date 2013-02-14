@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head><script type="text/javascript" src="http://aulas.ort.edu.uy/lib/ufo.js"></script>
+
+        <title>PhoneGap Network</title>
+        <script type="text/javascript" src="phonegap.1.9.0.js">
+        </script>
+        <script type="text/javascript">
+            
+            
+            /** Llamado cuando el javascript de phonegap esta cargado */
+            function onDeviceReady(){
+                chequeoConeccion();
+                
+            }
+            
+            function chequeoConeccion(){
+                try {
+                
+                    navigator.network.isReachable("http://www.google.com", function(index){
+                        var status = {};
+                        status[NetworkStatus.NOT_REACHABLE] = "no llegamos :(";
+                        status[NetworkStatus.REACHABLE_VIA_CARRIER_DATA_NETWORK] = "llegamos con el celu";
+                        status[NetworkStatus.REACHABLE_VIA_WIFI_NETWORK] = "llegamos con la red wifi";
+                        
+                        document.getElementById("network-status").innerHTML = "Atencion al sitio http://www.google.com  " + status[index];
+                    }, function(err){
+                        alert(err);
+                    })
+                } 
+                catch (err) {
+                    alert(err);
+                }
+            }
+            
+            /** Llamado cuiando el browser carga esta pagina*/
+            function init(){
+                document.addEventListener("deviceready", onDeviceReady, false);
+            }
+        </script>
+    </head>
+    <body onLoad="init()">
+        <h3>Info de ka red del dispositivo</h3>
+        <div id="network-status">
+        </div>
+    </body>
+</html>

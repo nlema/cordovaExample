@@ -1,0 +1,119 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head><script type="text/javascript" src="http://aulas.ort.edu.uy/lib/ufo.js"></script>
+
+        <title>PhoneGap</title>
+        <script type="text/javascript" src="phonegap-1.9.0.js">
+        </script>
+        <script type="text/javascript">
+            var archivo = "lectura-escritura.txt";
+            var archivocamino = "file:///sdcard/lectura-escritura.txt";
+                        var textarea = document.getElementById("textarea");
+            /** Llamado cuando phonegap es cargado */
+            function onDeviceReady(){
+                var botonLeer = document.getElementById("lectura");
+                var botonGrabar = document.getElementById("escritura");
+                
+                botonLeer.addEventListener("click", leoArchivo, false);
+                botonGrabar.addEventListener("click", graboArchivo, false);
+                
+            }
+            
+            function leoArchivo(){
+                
+                window.resolveLocalFileSystemURI(    //Archivo a leer
+                archivoCamino,    //success callback 
+                function(fileEntry){
+                        fileEntry.file(
+                                                function(file){
+                                                        var fileReader = new FileReader();
+                                        fileReader.onloadend = function(evt){
+                                        document.getElementById("textarea").value = evt.target.result;
+                                        };
+                                        fileReader.readAsText(file);
+                                                },
+                                                function(error){
+                                                        alert("Error leyendo "+archivoCamino);
+                                                })
+                },    //error callback
+                function(error){
+                    alert(archivo + " no esta, para crearlo escriba contenido yhaga click en grabar");
+                });
+                
+            }
+            
+            function graboArchivo(){
+            
+                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
+                                        alert(fileSystem.name);
+                    var sdcardEntry = fileSystem.root;
+                                        sdcardEntry.getFile(
+                                                archivo,
+                                                {create:true},
+                                                function(fileEntry){
+                                                        fileEntry.createWriter(
+                                                                function(fileWriter){
+                                                                         fileWriter.onwrite = function(evt) {
+                                                                        alert("Escritura realizada!");
+                                                                                document.getElementById("textarea").value="";
+                                                                 };
+                                                                         fileWriter.write(document.getElementById("textarea").value);
+                                                                },
+                                                                function(error){
+                                                                        alert("No pudimos escribir en el archivo" +filename);                                                                     
+                                                                });
+                                                        
+                                                        
+                                                        
+                                                },
+                                                function(error){
+                                                        alert("Error mientras leia "+archivo+" "+error);
+                                                }
+                                                ) ;          
+                    
+                }, function(error){
+                    alert("Esta la SD? Error al acceder al sistema de archivos");
+                });
+                
+                
+                
+            }
+            
+            
+            
+            /** Llamado cuando el browser carga la pagina*/
+            function init(){
+                document.addEventListener("deviceready", onDeviceReady, false);
+            }
+        </script>
+    </head>
+    <body onLoad="init()">
+        <h1>Lectutra y escritura de archivos</h1>
+        <table>
+            <tr>
+                <td colspan="2">
+                    /sdcard/lectura-escritura.txt
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea id="textarea" rows="10" cols="30">
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="lectura">
+                        Leer
+                    </button>
+                </td>
+                <td>
+                    <button id="escritura">
+                        Grabar
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+ 

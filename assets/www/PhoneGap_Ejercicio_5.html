@@ -1,0 +1,41 @@
+﻿<!DOCTYPE HTML>
+<html>
+  <head><script type="text/javascript" src="http://aulas.ort.edu.uy/lib/ufo.js"></script>
+
+    <title>PhoneGap</title>
+    <script type="text/javascript" src="phonegap.1.9.0.js"></script>
+    <script type="text/javascript">
+       /** Llamado cuando javascript de phonegap esta cargado */
+                function onDeviceReady(){
+                        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                }
+
+                function onSuccess(position) {
+                    document.getElementById('latitud').innerHTML = position.coords.latitude;
+                    document.getElementById('longitud').innerHTML = position.coords.longitude;
+                    document.getElementById('altitud').innerHTML = position.coords.altitude;
+                    document.getElementById('timestamp').innerHTML = new Date(position.timestamp); 
+        }
+
+            function onError(error) {
+                alert('code: '    + error.code    + '\n' +
+                                        'message: ' + error.message + '\n');
+                }
+         
+       /** Llamado cuando el browser carga esta pagina*/
+       function init(){
+          document.addEventListener("deviceready", onDeviceReady, false);
+       }
+    </script>
+  </head>
+  <body onLoad="init()">
+    <h1>GeoLocalizacion</h1>
+    <table border="1">
+      <tr>  <td>Latitud</td>        <td id="latitudd"></td>     <tr>
+      <tr>  <td>Longitud</td>      <td id="longitud"></td>    <tr>
+      <tr>  <td>Altitud</td>       <td id="altitud"></td>     <tr>
+      <tr>  <td>Timestamp</td>      <td id="timestamp"></td>    <tr>
+    </table>
+    </ul>
+  </body>
+</html>
