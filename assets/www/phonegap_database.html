@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejemplo Storage:Database</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" />
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/jquery.mobile-1.2.0.min.js"></script>
+    <script type="text/javascript" src="cordova-2.2.0.js"></script>
+    <script type="text/javascript">
+    // Esperando que PhoneGap Cargue
+	    document.addEventListener("deviceready", onDeviceReady, false);
+    // PhoneGap OK
+    	function onDeviceReady() {
+        	var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        	db.transaction(populateDB, errorCB, successCB);
+    	}
+    	function populateDB(tx) {     // Carga de la base de datos 
+        	tx.executeSql('DROP TABLE IF EXISTS DEMO');
+         	tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+         	tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+         	tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+    	}
+    	function errorCB(tx, err) {    // Error en la transacción
+        	alert("Error processing SQL: "+err);
+    	}
+    	function successCB() {    // Transacción OK
+        	alert("success!");
+    	}
+    </script>
+  </head>
+  <body>
+    <h1>Ejemplo</h1>
+    <p>Database</p>
+  </body>
+</html>

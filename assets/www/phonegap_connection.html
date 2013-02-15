@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejemplo Connection</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" />
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/jquery.mobile-1.2.0.min.js"></script>
+    <script type="text/javascript" src="cordova-2.2.0.js"></script>
+    <script type="text/javascript">
+    // Esperando que PhoneGap cargue
+    	document.addEventListener("deviceready", onDeviceReady, false);
+    // PhoneGap OK
+    function onDeviceReady() {
+        checkConnection();
+    }
+
+    function checkConnection() {
+        var networkState = navigator.connection.type;
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Conexión desconocida';
+        states[Connection.ETHERNET] = 'Ethernet';
+        states[Connection.WIFI]     = 'WiFi';
+        states[Connection.CELL_2G]  = 'Cell 2G';
+        states[Connection.CELL_3G]  = 'Cell 3G';
+        states[Connection.CELL_4G]  = 'Cell 4G';
+        states[Connection.NONE]     = 'Si conexión';
+        alert('Tipo de conexión: ' + states[networkState]);
+    }
+    </script>
+  </head>
+  <body>
+  
+    <p>Reporte del estado de la conexión</p>
+  </body>
+</html>
